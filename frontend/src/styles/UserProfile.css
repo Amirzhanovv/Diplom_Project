@@ -1,0 +1,260 @@
+:root {
+  --neon-red: #ff0015;
+  --glass-bg: rgba(15, 15, 15, 0.7);
+  --border-white: rgba(255, 255, 255, 0.08);
+}
+
+.profile-wrapper {
+  position: relative;
+  min-height: 90vh;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* Фоновое свечение */
+.profile-glow-blob {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(229, 9, 20, 0.15) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+  filter: blur(80px);
+}
+
+.profile-main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Шапка профиля */
+.profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-red);
+  box-shadow: 0 0 20px var(--neon-red);
+  animation: pulse 2s infinite;
+}
+
+.avatar-content {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.identity-text h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.status-badge {
+  color: var(--neon-red);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+/* Сетка карточек */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-white);
+  border-radius: 30px;
+  padding: 35px;
+  margin-bottom: 30px;
+  transition: 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Статистика */
+.stat-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stat-unit .val {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat-unit .lab {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 50px;
+  background: var(--border-white);
+}
+
+/* Прогресс-бар */
+.progress-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: var(--neon-red);
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--neon-red);
+}
+
+/* Теги и кнопка */
+.dna-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.dna-tag {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid var(--border-white);
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.glass-button {
+  width: 100%;
+  padding: 18px;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.glass-button.primary {
+  background: white;
+  color: black;
+}
+
+.glass-button.primary:hover {
+  background: var(--neon-red);
+  color: white;
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  .profile-identity {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.genre-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.genre-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.genre-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.genre-fill {
+  height: 100%;
+  background: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red);
+  border-radius: 10px;
+}
+
+/* Эффект для иконок-достижений */
+.achievement-badge {
+  filter: grayscale(1);
+  transition: 0.5s;
+}
+.achievement-badge.unlocked {
+  filter: grayscale(0) drop-shadow(0 0 10px gold);
+}

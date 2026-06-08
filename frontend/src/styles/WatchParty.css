@@ -1,0 +1,210 @@
+/* Основной макет: Видео слева, Чат справа */
+.watch-party-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  height: calc(100vh - 120px);
+  gap: 25px;
+  margin: 20px 0;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Секция видео */
+.video-area {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.room-id-badge {
+  background: rgba(229, 9, 20, 0.1);
+  color: #e50914;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(229, 9, 20, 0.2);
+}
+
+.exit-party-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  padding: 6px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.exit-party-btn:hover {
+  background: #e50914;
+  color: #fff;
+  border-color: #e50914;
+}
+
+.iframe-wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* СЕКЦИЯ ЧАТА */
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Список сообщений */
+.messages-list {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Скроллбар для чата */
+.messages-list::-webkit-scrollbar {
+  width: 4px;
+}
+.messages-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Сообщения-пузыри */
+.msg-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Мои сообщения (справа) */
+.my-msg {
+  align-self: flex-end;
+  background: #e50914;
+  color: white;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+/* Чужие сообщения (слева) */
+.other-msg {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.07);
+  color: #eee;
+  border-bottom-left-radius: 4px;
+}
+
+.msg-author {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Контейнер ввода */
+.chat-input-container {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chat-input-container input {
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #fff;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.chat-input-container input:focus {
+  outline: none;
+  border-color: #e50914;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.send-btn {
+  background: #e50914;
+  border: none;
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.send-btn:hover {
+  transform: scale(1.05);
+  background: #ff0000;
+}
+
+.empty-chat {
+  text-align: center;
+  color: #555;
+  margin-top: 50%;
+  font-style: italic;
+}

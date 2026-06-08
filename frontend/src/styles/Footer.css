@@ -1,0 +1,22 @@
+footer {
+  margin-top: 50px;
+  padding: 40px 4%;
+  border-top: 1px solid #222;
+  background-color: #000;
+  text-align: center; /* Центрируем текст */
+  color: #777; /* Делаем текст серым, чтобы не отвлекал */
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Стили для технических подробностей (FastAPI + React...) */
+.footer-tech {
+  font-size: 0.75rem;
+  color: #444;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

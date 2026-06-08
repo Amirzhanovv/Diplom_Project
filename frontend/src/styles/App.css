@@ -1,0 +1,429 @@
+/* Глобальные настройки */
+:root {
+  --primary-red: #e50914;
+  --dark-bg: #050505;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #050505 100%);
+  color: #ffffff;
+  font-family:
+    "Inter",
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+}
+
+.main-content {
+  padding: 40px 4%;
+  animation: fadeInContent 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 40px 0 25px;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: "";
+  width: 4px;
+  height: 28px;
+  background: var(--primary-red);
+  margin-right: 15px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--primary-red);
+}
+
+/* === СТИЛИ ЖАНРОВ (GENRE TABS) === */
+.genre-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 35px;
+  padding: 5px;
+  overflow-x: auto;
+}
+
+.genre-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.genre-btn {
+  background: var(--card-bg);
+  color: #888;
+  border: 1px solid var(--glass-border);
+  padding: 10px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.genre-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.genre-btn.active {
+  background: var(--primary-red);
+  color: #fff;
+  border-color: var(--primary-red);
+  box-shadow: 0 8px 20px rgba(229, 9, 20, 0.4);
+}
+
+/* Главная сетка для карточек */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+  align-items: stretch; /* Обязательно stretch! */
+}
+
+.ai-badge {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem; /* Делаем шрифт чуть меньше основного заголовка */
+  font-weight: 800;
+  margin-left: 12px; /* Создает визуальный разрыв между текстом и плашкой */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.4); /* Легкое свечение */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.search-container {
+  position: relative;
+  max-width: 800px;
+  margin: 20px auto 40px; /* Центрируем на странице */
+  padding: 0 20px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Иконка лупы внутри инпута */
+.search-wrapper::before {
+  content: "🔍";
+  position: absolute;
+  left: 20px;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.search-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 20px 15px 55px; /* Отступ слева под лупу */
+  border-radius: 30px;
+  color: white;
+  font-size: 1.1rem;
+  font-family: inherit;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Эффект при фокусе (когда нажал на поиск) */
+.search-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #e50914;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.2);
+  transform: scale(1.01);
+}
+
+.search-input:focus + .search-wrapper::before {
+  opacity: 1;
+}
+
+/* Плейсхолдер (текст-подсказка) */
+.search-input::placeholder {
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.search-input:focus::placeholder {
+  color: #999;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптация под мобилки */
+@media (max-width: 600px) {
+  .search-input {
+    padding: 12px 15px 12px 45px;
+    font-size: 1rem;
+  }
+}
+
+.rating-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  padding: 6px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-chip.active {
+  background: #f5c518;
+  color: #000;
+  font-weight: 700;
+}
+
+.empty-state-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  padding: 40px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Мягкое красное свечение на фоне */
+.empty-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(229, 9, 20, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: 1;
+  filter: blur(50px);
+}
+
+.empty-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.empty-icon-ai {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.empty-content h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.empty-content p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Кнопка в стиле Glassmorphism */
+.modern-glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  width: auto; /* Чтобы не была на весь экран */
+  display: inline-block;
+}
+
+.modern-glass-button:hover {
+  background: #e50914;
+  border-color: #e50914;
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Контейнер секций */
+.home-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Большой отступ между блоками для чистоты */
+  padding-bottom: 100px;
+}
+
+/* Общие стили секций */
+.ultra-section {
+  position: relative;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.section-icon {
+  font-size: 1.5rem;
+}
+
+.ultra-section .section-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Спец-эффект для ИИ секции */
+.ai-glow-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -50px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(229, 9, 20, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ai-status-tag {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #00ff88; /* Зеленый индикатор работы ИИ */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Улучшенные жанровые табы */
+.modern-genre-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.modern-genre-tabs::-webkit-scrollbar {
+  height: 0px;
+}
+
+.modern-genre-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #666;
+  padding: 10px 25px;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.modern-genre-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.modern-genre-btn.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* Контейнер карточки для анимации */
+.modern-card-hover {
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.modern-card-hover:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Заглушка для пустого ИИ */
+.ai-placeholder {
+  width: 100%;
+  padding: 60px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: #444;
+}
+

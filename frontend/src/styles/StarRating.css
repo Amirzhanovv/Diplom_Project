@@ -1,0 +1,183 @@
+/* Контейнер для страницы избранного */
+.favs-page {
+  padding: 20px 0;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.favs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.modern-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03); /* Едва заметный фон */
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 15px;
+}
+
+.star-btn {
+  background: none !important; /* Убираем белый фон */
+  border: none !important; /* Убираем рамки */
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #333; /* Цвет пустой звезды */
+  transition: all 0.2s ease;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.star-btn.active {
+  color: #f5c518 !important; /* Золотой цвет */
+  filter: drop-shadow(0 0 5px rgba(245, 197, 24, 0.5));
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
+}
+
+.rating-value {
+  margin-left: 8px;
+  font-weight: 800;
+  color: #f5c518;
+  font-size: 0.9rem;
+}
+
+/* Эффект для самих карточек в Избранном */
+.movie-grid .movie-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movie-grid .movie-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-red);
+  box-shadow: 0 20px 40px rgba(229, 9, 20, 0.2);
+}
+
+.movie-card-wrapper {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  padding: 12px; /* Внутренний отступ, чтобы контент не лип к краям */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card-wrapper:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(229, 9, 20, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Убираем лишние цифры под звездами, если они есть */
+.score-badge, .rating-number-hidden {
+  display: none; 
+}
+
+.movie-card-wrapper h3 {
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Три точки, если текст длинный */
+  color: #fff;
+}
+
+.movie-card-wrapper p {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+/* --- Исправление звезд (StarRating) --- */
+.modern-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.star-icon {
+  font-size: 1.5rem;
+  color: #333; /* Цвет пустой звезды */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.star-icon.active {
+  color: #f5c518 !important; /* Золотой неон */
+  text-shadow: 0 0 8px rgba(245, 197, 24, 0.6);
+}
+
+.star-icon:hover {
+  transform: scale(1.2);
+  color: #f5c518;
+}
+
+.rating-value {
+  color: #f5c518;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-left: 8px;
+}
+
+/* --- Исправление карточек в Библиотеке --- */
+.movie-card-wrapper {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.movie-card-wrapper:hover {
+  border-color: #e50914;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+}
+
+.movie-card-wrapper h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 15px 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Фикс: обрезает длинный текст тремя точками */
+  color: #fff;
+}
+
+.movie-card-wrapper p {
+  color: #777;
+  font-size: 0.9rem;
+  margin: 0 0 15px 0;
+}
+
+/* Текст "ОЦЕНИТЬ" внутри карточки */
+.rate-text {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #555;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}

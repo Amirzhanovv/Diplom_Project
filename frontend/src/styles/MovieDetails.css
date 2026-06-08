@@ -1,0 +1,380 @@
+/* Основной контейнер страницы */
+.movie-details-page {
+  animation: fadeIn 0.6s ease-out forwards;
+  color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Кнопка НАЗАД (Ультра-модерн) */
+.back-btn-modern {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 25px;
+  width: fit-content;
+}
+
+.back-btn-modern:hover {
+  background: rgba(229, 9, 20, 0.1);
+  border-color: #e50914;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.3);
+  transform: translateX(-5px);
+}
+
+.back-btn-modern:active {
+  transform: scale(0.95);
+}
+
+/* Секция с трейлером */
+.hero-section {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  margin-bottom: 40px;
+  background: #111;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.no-trailer-backdrop {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+}
+
+.no-trailer-backdrop p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+/* Сетка контента */
+.info-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.poster-side {
+  position: sticky;
+  top: 20px;
+}
+
+.detail-poster {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Текстовая информация */
+.detail-title {
+  font-size: 2.8rem;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.year-dim {
+  color: #666;
+  font-weight: 400;
+}
+
+.tagline-modern {
+  font-style: italic;
+  color: #e50914;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.overview-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+/* Чипсы мета-данных */
+.details-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.meta-chip {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tmdb-gold {
+  color: #f5c518;
+  font-weight: 700;
+  background: rgba(245, 197, 24, 0.1);
+  border-color: rgba(245, 197, 24, 0.2);
+}
+
+/* Карточка рейтинга */
+.rating-card-modern {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 30px 0;
+  display: inline-block;
+  min-width: 300px;
+}
+
+.rating-card-modern h3 {
+  margin: 0 0 15px 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+}
+
+/* Кнопка "Смотреть фильм" */
+.watch-now-btn {
+  width: 100%;
+  margin-top: 20px;
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+}
+
+.watch-now-btn:hover {
+  background: #ff0000;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(229, 9, 20, 0.6);
+}
+
+/* МОДАЛЬНОЕ ОКНО ПЛЕЕРА */
+.player-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.player-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  box-shadow: 0 0 100px rgba(229, 9, 20, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Панель управления плеером */
+.player-header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(20, 20, 20, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.source-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.source-tabs button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.source-tabs button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.source-tabs button.active {
+  background: #e50914;
+  color: white;
+  border-color: #e50914;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+}
+
+.close-player-btn {
+  background: rgba(229, 9, 20, 0.8);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.close-player-btn:hover {
+  background: #ff0000;
+  transform: rotate(90deg);
+}
+
+.iframe-container {
+  flex-grow: 1;
+  background: #000;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Лоадер */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #e50914;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* Адаптация */
+@media (max-width: 850px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .poster-side {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .text-info {
+    text-align: center;
+  }
+  .details-meta-chips {
+    justify-content: center;
+  }
+  .detail-title {
+    font-size: 2rem;
+  }
+}
+
+.watch-party-btn-modern {
+  width: 100%;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.watch-party-btn-modern:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #e50914; /* Красная рамка при наведении */
+  transform: translateY(-2px);
+}
+
+.watch-party-btn-modern span {
+  font-size: 1.2rem;
+}

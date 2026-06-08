@@ -1,0 +1,169 @@
+.pref-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pref-modal {
+  background: #0a0a0a;
+  padding: 45px;
+  border-radius: 32px;
+  max-width: 850px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 80px rgba(229, 9, 20, 0.15);
+  text-align: center;
+  animation: modalSlideUp 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Прогресс-бар */
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #e50914;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
+  transition: width 0.4s ease;
+}
+
+.step-info {
+  color: #555;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.pref-title {
+  font-size: 2.2rem;
+  margin: 15px 0 5px;
+  color: #fff;
+}
+
+.pref-subtitle {
+  color: #888;
+  margin-bottom: 35px;
+}
+
+/* СЕТКА (Grid) */
+.pref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.pref-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.pref-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.pref-card h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.pref-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Состояние при клике */
+.pref-card.active {
+  background: rgba(229, 9, 20, 0.08);
+  border-color: #e50914;
+  transform: translateY(-3px);
+}
+
+.pref-card.active .checkbox-ring {
+  background: #e50914;
+  border-color: #e50914;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+.checkbox-ring {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+/* Кнопки */
+.pref-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.pref-btn {
+  padding: 14px 35px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+}
+
+.pref-btn.primary {
+  background: #e50914;
+  color: #fff;
+  border: none;
+}
+
+.pref-btn.primary:hover {
+  background: #ff1f2a;
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.4);
+  transform: scale(1.03);
+}
+
+.pref-btn.secondary {
+  background: transparent;
+  color: #777;
+  border: 1px solid #333;
+}
+
+.pref-btn.secondary:hover {
+  color: #fff;
+  border-color: #666;
+}
